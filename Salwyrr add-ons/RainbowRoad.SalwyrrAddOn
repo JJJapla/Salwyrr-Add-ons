@@ -1,0 +1,38 @@
+@Event: onAddonStart
+var:id;0
+var:time;0
+var:coord;-1
+var:activer;false
+
+@Event: onSendMessage:%messageSend%
+if:"%messageSend%" === "/rbvon"
+var:activer;true
+endStructure
+if:"%messageSend%" === "/rbvoff"
+var:activer;false
+endStructure
+
+@Event: onKeyPressed:%pressedKey%
+if:"%pressedKey%" === "LSHIFT"
+var:coord;-2
+endStructure
+
+@Event: onKeyUnpressed:%unpressedKey%
+if:"%unpressedKey%" === "LSHIFT"
+var:coord;-1
+endStructure
+
+@Event: onDraw
+if:%activer% === true
+var:time;%time% + 1
+sendMessage:/setblock ~ ~%coord% ~ minecraft:stained_glass %id%
+deleteMessage
+if:%time% > 2
+var:time;0
+var:id;%id% + 1
+endStructure
+if:%id% > 15
+var:id;0
+endStructure
+endStructure
+
