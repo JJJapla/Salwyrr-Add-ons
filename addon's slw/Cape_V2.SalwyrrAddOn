@@ -1,0 +1,112 @@
+@Event: onRender
+if:'%cos%'='1'
+if:'%F5%'='1'
+draw3dItem:425;%playerPositionX%+(%X%);%playerPositionY%+0.6+%shift%;%playerPositionZ%+(%Z%);%playerHeadYaw%+180;-40+%rota%;0;100
+endStructure
+endStructure
+
+@Event: onTick
+if:'%cos%'='1'
+var:X;Math.cos((%playerHeadYaw%+90+180)/57.2958)/%div%
+var:Z;Math.sin((%playerHeadYaw%+90+180)/57.2958)/%div%
+if:'%bouge%'='1'
+increment:rota;%ro%
+if:'%rota%'='10'
+var:ro;-1
+endStructure
+if:'%rota%'='-10'
+var:ro;1
+endStructure
+endStructure
+endStructure
+
+@Event: onSendMessage:%messageSend%
+if:'%messageSend%'='/cape on'
+cancelSendMessage
+if:'%cos%'='0'
+var:cos;1
+var:ro;1
+var:rota;0
+save:%cos%;cos
+addMessage:§8Cosmétique §2Activer §8!
+else
+addMessage:§8Cosmétique §2Déjà activer §8!
+endStructure
+endStructure
+if:'%messageSend%'='/cape off'
+cancelSendMessage
+if:'%cos%'='1'
+var:cos;0
+var:ro;0
+save:%cos%;cos
+addMessage:§8Cosmétique §4Désactiver §8!
+else
+addMessage:§8Cosmétique §4§4Déja désactiver §8!
+endStructure
+endStructure
+
+@Event: onKeyPressed:%pressedKey%
+if:'%pressedKey%'='Lshift'
+var:shift;-0.25
+var:div;1.15
+endStructure
+
+@Event: onKeyUnpressed:%unpressedKey%
+if:'%unpressedKey%'='Lshift'
+var:shift;0
+var:div;1.45
+endStructure
+
+@Event: onKeyUnpressed:%unpressedKey%
+if:'%unpressedKey%'='z'
+var:bouge;0
+endStructure
+
+#Method:reset
+var:id;20
+var:cos;1
+save:%id%;id
+save:%cos%;cos
+@MethodEnd
+
+@Event: onAddonStart
+var:F5;0
+var:bouge;0
+var:ro;1
+var:rota;0
+var:shift;0
+var:div;1.5
+var:X;0
+var:Y;0
+var:Z;0
+var:dejavu;1
+var:cos;1
+var:id;20
+getSave:cos;cos
+getSave:dejavu;dejavu
+getSave:id;id
+if:'%dejavu%'='1'
+var:dejavu;0
+var:id;20
+var:cos;1
+save:%dejavu%;dejavu
+save:%id%;id
+save:%cos%;cos
+addMessageIn:0.1;§6Cosmétique V2 créer par NexFord !
+addMessageIn:0.2;§2/cape on §1Active !
+addMessageIn:0.3;§4/cape off §1Désactive !
+endStructure
+
+@Event: onKeyPressed:%pressedKey%
+if:'%pressedKey%'='z'
+var:bouge;1
+endStructure
+
+@Event: onKeyPressed:%pressedKey%
+if:'%pressedKey%'='F5'
+increment:F5;1
+if:'%F5%'='3'
+var:F5;0
+endStructure
+endStructure
+

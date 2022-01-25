@@ -1,0 +1,76 @@
+@Event: onRender
+if:'%cos%'='1'
+draw3dItem:425;%playerPositionX%+(%X%);%playerPositionY%+0.6+%shift%;%playerPositionZ%+(%Z%);%playerHeadYaw%+180;-40;0;100
+endStructure
+
+#Method:reset
+var:id;20
+var:cos;1
+save:%id%;id
+save:%cos%;cos
+@MethodEnd
+
+@Event: onTick
+if:'%cos%'='1'
+var:X;Math.cos((%playerHeadYaw%+90+180)/57.2958)/%div%
+var:Z;Math.sin((%playerHeadYaw%+90+180)/57.2958)/%div%
+endStructure
+
+@Event: onKeyPressed:%pressedKey%
+if:'%pressedKey%'='Lshift'
+var:shift;-0.25
+var:div;1.2
+endStructure
+
+@Event: onKeyUnpressed:%unpressedKey%
+if:'%unpressedKey%'='Lshift'
+var:shift;0
+var:div;1.5
+endStructure
+
+@Event: onAddonStart
+var:shift;0
+var:div;1.5
+var:X;0
+var:Y;0
+var:Z;0
+var:dejavu;1
+var:cos;1
+var:id;20
+getSave:cos;cos
+getSave:dejavu;dejavu
+getSave:id;id
+if:'%dejavu%'='1'
+var:dejavu;0
+var:id;20
+var:cos;1
+save:%dejavu%;dejavu
+save:%id%;id
+save:%cos%;cos
+addMessageIn:0.1;§6Cosméticos V2 criados por NexFord e traduzidos por JJJapla!
+addMessageIn:0.2;§2/cape on §1Activa !
+addMessageIn:0.3;§4/cape off §1Desativa !
+endStructure
+
+@Event: onSendMessage:%messageSend%
+if:'%messageSend%'='/cape on'
+cancelSendMessage
+if:'%cos%'='0'
+var:cos;1
+save:%cos%;cos
+addMessage:§8Cosméticos §2Activos §8!
+else
+addMessage:§8Cosméticos §2Já ativos §8!
+endStructure
+endStructure
+if:'%messageSend%'='/cape off'
+cancelSendMessage
+if:'%cos%'='1'
+var:cos;0
+save:%cos%;cos
+addMessage:§8Cosméticos §4Desativados §8!
+else
+addMessage:§8Cosméticos §4§4Já desativados §8!
+endStructure
+endStructure
+

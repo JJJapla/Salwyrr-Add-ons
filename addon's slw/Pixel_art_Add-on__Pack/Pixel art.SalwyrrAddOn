@@ -1,0 +1,73 @@
+#Method:help
+addMessageIn:0.1;§6Pixel art add-on créé par NexFord !
+addMessageIn:0.2;§a/pix on §7Active l'add-on !
+addMessageIn:0.3;§c/pix off §7Désactive l'add-on !
+addMessageIn:0.4;§b/pix nb "numéro" §7Change le numéro du pixelart ! (de 1 à 12)
+addMessageIn:0.5;§4/pix reset §7Met l'add-on par defaut !
+addMessageIn:0.6;§2/pix help §7Affiche à nouveau ces messages !
+@MethodEnd
+
+#Method:reset
+var:on;1
+var:nb;2256
+save:%on%;on
+save:%nb%;nb
+@MethodEnd
+
+@Event: onAddonStart
+var:on;1
+var:nb;2256
+var:dejavu;0
+getSave:on;on
+getSave:nb;nb
+getSave:dejavu;dejavu
+if:'%dejavu%'='0'
+var:dejavu;1
+save:%dejavu%;dejavu
+callMethod:help
+endStructure
+
+@Event: onSendMessage:%messageSend%
+if:'%messageSend%'='/pix on'
+cancelSendMessage
+if:'%on%'='0'
+var:on;1
+save:%on%;on
+addMessage:§8Pixel art §2Activer §8!
+else
+addMessage:§8Pixel art §2Déjà activer §8!
+endStructure
+endStructure
+if:'%messageSend%'='/pix off'
+cancelSendMessage
+if:'%on%'='1'
+var:on;0
+save:%on%;on
+addMessage:§8Pixel art §4Désactiver §8!
+else
+addMessage:§8Pixel art §4§4Déja désactiver §8!
+endStructure
+endStructure
+if:'%messageSend%'='/pix help'
+cancelSendMessage
+callMethod:help
+endStructure
+if:'%messageSend%'='/pix reset'
+cancelSendMessage
+callMethod:reset
+addMessage:§4Add-on par défaut !
+endStructure
+startWith:/pix nb ;%messageSend%;nbTrue
+if:%nbTrue% === true
+cancelSendMessage
+startSubstring:8;%messageSend%;nb
+addMessage:§8Pixel art selectionné numéro §b%nb% §8!
+increment:nb;2255
+save:%nb%;nb
+endStructure
+
+@Event: onRender
+if:'%on%'='1'
+draw3dItem:%nb%;%playerPositionX%;%playerPositionY%+2.35;%playerPositionZ%;%playerHeadYaw%+180;0;0;100
+endStructure
+

@@ -1,0 +1,93 @@
+@Event: onNewMessage:%message%
+contains:1st Killer - ;%message%;msgTrue
+if:%msgTrue% === true
+sendMessage:%msg%
+endStructure
+contains:1st Place - ;%message%;msgTrue
+if:%msgTrue% === true
+sendMessage:%msg%
+endStructure
+contains:Winning Team -;%message%;msgTrue
+if:%msgTrue% === true
+sendMessage:%msg%
+endStructure
+contains:1st - ;%message%;msgTrue
+if:%msgTrue% === true
+sendMessage:%msg%
+endStructure
+contains:Winners: ;%message%;msgTrue
+if:%msgTrue% === true
+sendMessage:%msg%
+endStructure
+contains:Winner: ;%message%;msgTrue
+if:%msgTrue% === true
+sendMessage:%msg%
+endStructure
+contains:Winning Team: ;%message%;msgTrue
+if:%msgTrue% === true
+sendMessage:%msg%
+endStructure
+contains: won the game!;%message%;msgTrue
+if:%msgTrue% === true
+sendMessage:%msg%
+endStructure
+contains:1st Place: ;%message%;msgTrue
+if:%msgTrue% === true
+sendMessage:%msg%
+endStructure
+contains:Winner #1 (;%message%;msgTrue
+if:%msgTrue% === true
+sendMessage:%msg%
+endStructure
+contains:Winners - ;%message%;msgTrue
+if:%msgTrue% === true
+sendMessage:%msg%
+endStructure
+contains:Your game was boosted by;%message%;msgTrue
+if:%msgTrue% === true
+sendMessage:%msg%
+endStructure
+contains:Vencedor: ;%message%;msgTrue
+if:%msgTrue% === true
+sendMessage:%msg%
+endStructure
+contains:Vencedores: ;%message%;msgTrue
+if:%msgTrue% === true
+sendMessage:%msg%
+endStructure
+contains:Vencedores - ;%message%;msgTrue
+if:%msgTrue% === true
+sendMessage:%msg%
+endStructure
+contains:Assassino - ;%message%;msgTrue
+if:%msgTrue% === true
+sendMessage:%msg%
+endStructure
+contains:1º Lugar - ;%message%;msgTrue
+if:%msgTrue% === true
+sendMessage:%msg%
+endStructure
+contains:1º - ;%message%;msgTrue
+if:%msgTrue% === true
+sendMessage:%msg%
+endStructure
+contains:1º Lugar: ;%message%;msgTrue
+if:%msgTrue% === true
+sendMessage:%msg%
+endStructure
+contains:Equipa vencedora - ;%message%;msgTrue
+if:%msgTrue% === true
+sendMessage:%msg%
+endStructure
+contains:Equipa vencedora: ;%message%;msgTrue
+if:%msgTrue% === true
+sendMessage:%msg%
+endStructure
+contains: ganhou a partida;%message%;msgTrue
+if:%msgTrue% === true
+sendMessage:%msg%
+endStructure
+
+@Event: onAddonStart
+var:msg;gg
+
