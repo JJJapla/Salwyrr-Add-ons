@@ -1,0 +1,181 @@
+@Event: onKeyPressed:%pressedKey%
+if:'%pressedKey%'='r'
+increment:a;1
+if:'%a%'='3'
+var:a;0
+endStructure
+endStructure
+
+@Event: onSendMessage:%messageSend%
+startWith:/viseur color;%messageSend%;colorTrue
+if:%colorTrue% === true
+cancelSendMessage
+startSubstring:14;%messageSend%;color
+save:%color%;color
+addMessage:§9A cor da mire é agora: §B%color% §9!
+endStructure
+startWith:/viseur nb ;%messageSend%;nbTrue
+if:%nbTrue% === true
+cancelSendMessage
+startSubstring:11;%messageSend%;nb
+save:%nb%;nb
+addMessage:§9Você escolheu o número da mira: §B%color% §9!
+endStructure
+if:'%messageSend%'='/viseur help'
+cancelSendMessage
+callMethod:help
+endStructure
+if:'%messageSend%'='/viseur reset'
+cancelSendMessage
+var:a;0
+var:nb;0
+var:on;1
+var:color;white
+save:%a%;a
+save:%nb%;nb
+save:%on%;on
+save:%color%;color
+addMessage:§4Add-on resetado !
+endStructure
+if:'%messageSend%'='/viseur on'
+cancelSendMessage
+var:on;1
+save:%on%;on
+addMessage:§aAdd-on ativado !
+endStructure
+if:'%messageSend%'='/viseur off'
+cancelSendMessage
+var:on;0
+save:%on%;on
+addMessage:§cAdd-on desativado !
+endStructure
+
+@Event: onAddonStart
+var:a;0
+var:nb;4
+var:color;cyan
+var:on;0
+var:dejavu;0
+getSave:nb;nb
+getSave:color;color
+getSave:on;on
+getSave:dejavu;dejavu
+if:'%dejavu%'='0'
+var:dejavu;1
+save:%dejavu%;dejavu
+callMethod:help
+endStructure
+
+@Event: onDraw
+if:'%on%'='1'
+if:'%a%'='0'
+if:'%nb%'='0'
+drawRect:%screenWidth%/2-4;%screenHeight%/2;9;1;%color%
+drawRect:%screenWidth%/2;%screenHeight%/2-4;1;9;%color%
+endStructure
+if:'%nb%'='1'
+drawRect:%screenWidth%/2;%screenHeight%/2;1;1;%color%
+drawRect:%screenWidth%/2-2;%screenHeight%/2-1;2;1;%color%
+drawRect:%screenWidth%/2-3;%screenHeight%/2-3;1;2;%color%
+drawRect:%screenWidth%/2+1;%screenHeight%/2-2;1;2;%color%
+drawRect:%screenWidth%/2+2;%screenHeight%/2-3;2;1;%color%
+drawRect:%screenWidth%/2+1;%screenHeight%/2+1;2;1;%color%
+drawRect:%screenWidth%/2+3;%screenHeight%/2+2;1;2;%color%
+drawRect:%screenWidth%/2-1;%screenHeight%/2+1;1;2;%color%
+drawRect:%screenWidth%/2-3;%screenHeight%/2+3;2;1;%color%
+endStructure
+if:'%nb%'='2'
+drawRect:%screenWidth%/2;%screenHeight%/2;1;1;%color%
+drawRect:%screenWidth%/2+1;%screenHeight%/2+1;1;1;%color%
+drawRect:%screenWidth%/2-1;%screenHeight%/2-1;1;1;%color%
+drawRect:%screenWidth%/2-1;%screenHeight%/2+1;1;1;%color%
+drawRect:%screenWidth%/2+1;%screenHeight%/2-1;1;1;%color%
+drawRect:%screenWidth%/2+2;%screenHeight%/2+2;1;1;%color%
+drawRect:%screenWidth%/2-2;%screenHeight%/2-2;1;1;%color%
+drawRect:%screenWidth%/2-2;%screenHeight%/2+2;1;1;%color%
+drawRect:%screenWidth%/2+2;%screenHeight%/2-2;1;1;%color%
+drawRect:%screenWidth%/2+3;%screenHeight%/2+3;1;1;%color%
+drawRect:%screenWidth%/2-3;%screenHeight%/2-3;1;1;%color%
+drawRect:%screenWidth%/2-3;%screenHeight%/2+3;1;1;%color%
+drawRect:%screenWidth%/2+3;%screenHeight%/2+3;1;1;%color%
+drawRect:%screenWidth%/2+3;%screenHeight%/2-3;1;1;%color%
+endStructure
+if:'%nb%'='3'
+drawRect:%screenWidth%/2;%screenHeight%/2;1;1;%color%
+drawRect:%screenWidth%/2+2;%screenHeight%/2;3;1;%color%
+drawRect:%screenWidth%/2-1;%screenHeight%/2;-3;1;%color%
+drawRect:%screenWidth%/2;%screenHeight%/2+2;1;3;%color%
+drawRect:%screenWidth%/2;%screenHeight%/2-1;1;-3;%color%
+drawRect:%screenWidth%/2-3;%screenHeight%/2-3;2;1;%color%
+drawRect:%screenWidth%/2-3;%screenHeight%/2-2;1;1;%color%
+drawRect:%screenWidth%/2-3;%screenHeight%/2+3;2;1;%color%
+drawRect:%screenWidth%/2-3;%screenHeight%/2+2;1;1;%color%
+drawRect:%screenWidth%/2+4;%screenHeight%/2-3;-2;1;%color%
+drawRect:%screenWidth%/2+3;%screenHeight%/2-2;1;1;%color%
+drawRect:%screenWidth%/2+4;%screenHeight%/2+3;-2;1;%color%
+drawRect:%screenWidth%/2+3;%screenHeight%/2+2;1;1;%color%
+endStructure
+if:'%nb%'='4'
+drawRect:%screenWidth%/2;%screenHeight%/2;1;1;%color%
+drawRect:%screenWidth%/2+2;%screenHeight%/2;1;1;%color%
+drawRect:%screenWidth%/2-2;%screenHeight%/2;1;1;%color%
+drawRect:%screenWidth%/2;%screenHeight%/2+2;1;1;%color%
+drawRect:%screenWidth%/2;%screenHeight%/2-2;1;1;%color%
+drawRect:%screenWidth%/2-1;%screenHeight%/2+1;1;1;%color%
+drawRect:%screenWidth%/2-1;%screenHeight%/2-1;1;1;%color%
+drawRect:%screenWidth%/2+1;%screenHeight%/2-1;1;1;%color%
+drawRect:%screenWidth%/2+1;%screenHeight%/2+1;1;1;%color%
+drawRect:%screenWidth%/2-1;%screenHeight%/2-5;3;1;%color%
+drawRect:%screenWidth%/2-1;%screenHeight%/2+5;3;1;%color%
+drawRect:%screenWidth%/2-5;%screenHeight%/2-1;1;3;%color%
+drawRect:%screenWidth%/2+5;%screenHeight%/2-1;1;3;%color%
+drawRect:%screenWidth%/2-4;%screenHeight%/2-3;1;2;%color%
+drawRect:%screenWidth%/2+4;%screenHeight%/2-3;1;2;%color%
+drawRect:%screenWidth%/2-4;%screenHeight%/2+2;1;2;%color%
+drawRect:%screenWidth%/2+4;%screenHeight%/2+2;1;2;%color%
+drawRect:%screenWidth%/2-3;%screenHeight%/2-4;2;1;%color%
+drawRect:%screenWidth%/2-3;%screenHeight%/2+4;2;1;%color%
+drawRect:%screenWidth%/2+2;%screenHeight%/2-4;2;1;%color%
+drawRect:%screenWidth%/2+2;%screenHeight%/2+4;2;1;%color%
+endStructure
+if:'%nb%'='5'
+drawRect:%screenWidth%/2;%screenHeight%/2;1;1;%color%
+drawRect:%screenWidth%/2+3;%screenHeight%/2;1;1;%color%
+drawRect:%screenWidth%/2-3;%screenHeight%/2;1;1;%color%
+drawRect:%screenWidth%/2;%screenHeight%/2+3;1;1;%color%
+drawRect:%screenWidth%/2;%screenHeight%/2-3;1;1;%color%
+drawRect:%screenWidth%/2-2;%screenHeight%/2-1;1;1;%color%
+drawRect:%screenWidth%/2-1;%screenHeight%/2-2;1;1;%color%
+drawRect:%screenWidth%/2-2;%screenHeight%/2+1;1;1;%color%
+drawRect:%screenWidth%/2-1;%screenHeight%/2+2;1;1;%color%
+drawRect:%screenWidth%/2+1;%screenHeight%/2-2;1;1;%color%
+drawRect:%screenWidth%/2+2;%screenHeight%/2-1;1;1;%color%
+drawRect:%screenWidth%/2+2;%screenHeight%/2+1;1;1;%color%
+drawRect:%screenWidth%/2+1;%screenHeight%/2+2;1;1;%color%
+drawRect:%screenWidth%/2-1;%screenHeight%/2-5;3;1;%color%
+drawRect:%screenWidth%/2-1;%screenHeight%/2+5;3;1;%color%
+drawRect:%screenWidth%/2-5;%screenHeight%/2-1;1;3;%color%
+drawRect:%screenWidth%/2+5;%screenHeight%/2-1;1;3;%color%
+drawRect:%screenWidth%/2-4;%screenHeight%/2-3;1;2;%color%
+drawRect:%screenWidth%/2+4;%screenHeight%/2-3;1;2;%color%
+drawRect:%screenWidth%/2-4;%screenHeight%/2+2;1;2;%color%
+drawRect:%screenWidth%/2+4;%screenHeight%/2+2;1;2;%color%
+drawRect:%screenWidth%/2-3;%screenHeight%/2-4;2;1;%color%
+drawRect:%screenWidth%/2-3;%screenHeight%/2+4;2;1;%color%
+drawRect:%screenWidth%/2+2;%screenHeight%/2-4;2;1;%color%
+drawRect:%screenWidth%/2+2;%screenHeight%/2+4;2;1;%color%
+endStructure
+endStructure
+endStructure
+
+#Method:help
+addMessageIn:0.1;§9"Viseur perso" §6add-on criado por §9NexFord §6e traduzido por §9JJJapla §6!
+addMessageIn:0.2;§a/viseur on §BAtiva a mira !
+addMessageIn:0.3;§C/viseur off §BDesativa a mira !
+addMessageIn:0.4;§9/viseur nb §bMuda o número da mira !
+addMessageIn:0.45;§9/viseur nb 0 §bMira vanilla §7(Entre 0 e 5) §b!
+addMessageIn:0.5;§9/viseur color §BMuda a cor da mira !
+addMessageIn:0.6;§4/viseur reset §BReseta o add-on !
+addMessageIn:0.7;§2/viseur help §BAfixa esta mensagem !
+@MethodEnd
+

@@ -1,0 +1,13 @@
+[EN]
+
+
+Hey!
+
+This addOn was made by JJJapla and Guga_Fenix, and here we will explain the addon and the commands.
+
+The addon has a system of friendships and a system to block people. You can choose whether you want notification, which people, remove people, reset the add-on, etc.
+The Friends addon contains 10 slots for friendships and the Block people addon contains 50 slots to block.
+
+Do "/ addon help" to see all commands and availability!
+
+Thanks.

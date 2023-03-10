@@ -1,0 +1,1342 @@
+@Event: onSendMessage:%messageSend%
+if:'%messageSend%'='/lang pt'
+cancelSendMessage
+var:lingua;pt
+addMessageIn:0.1;§a🔄 O add-on está em português !
+endStructure
+if:'%messageSend%'='/lang en'
+cancelSendMessage
+var:lingua;en
+addMessageIn:0.1;🔄 §aAdd-on is now in english !
+endStructure
+if:'%messageSend%'='/lang es'
+cancelSendMessage
+var:lingua;es
+addMessageIn:0.1;🔄 §aEl add-on está en español !
+endStructure
+if:'%messageSend%'='/lang fr'
+cancelSendMessage
+var:lingua;fr
+addMessageIn:0.1;🔄 §aL'addon est en français !
+endStructure
+if:'%messageSend%'='/block on'
+if:'%lingua%'='pt'
+cancelSendMessage
+var:block;true
+addMessageIn:0.1;⚙ §aLigando add-on...
+addMessageIn:0.6;§a✔ Add-on ligado !
+endStructure
+if:'%lingua%'='en'
+cancelSendMessage
+var:block;true
+addMessageIn:0.1;⚙ §aTurning on the add-on...
+addMessageIn:0.6;§a✔ Add-on turned on !
+endStructure
+if:'%lingua%'='es'
+cancelSendMessage
+var:block;true
+addMessageIn:0.1;⚙ §aEncender el add-on...
+addMessageIn:0.6;§a✔ Add-on activado !
+endStructure
+if:'%lingua%'='fr'
+cancelSendMessage
+var:block;true
+addMessageIn:0.1;⚙ §aActiver l'addon...
+addMessageIn:0.6;§a✔ Addon activé !
+endStructure
+endStructure
+if:'%messageSend%'='/unblock'
+if:'%lingua%'='pt'
+cancelSendMessage
+var:block;false
+addMessageIn:0.1;⚙ §cDesligando add-on...
+addMessageIn:0.6;❌ §cAdd-on desligado !
+endStructure
+if:'%lingua%'='en'
+cancelSendMessage
+var:block;false
+addMessageIn:0.1;⚙ §cTurning off the addon !
+addMessageIn:0.6;❌ §cAdd-on turned off !
+endStructure
+if:'%lingua%'='es'
+cancelSendMessage
+var:block;false
+addMessageIn:0.1;⚙ §cApagar el add-on...
+addMessageIn:0.6;❌ §cAdd-on desactivado !
+endStructure
+if:'%lingua%'='fr'
+cancelSendMessage
+var:block;false
+addMessageIn:0.1;⚙ §cArrêter l'addon...
+addMessageIn:0.6;❌ §cAddon désactivé !
+endStructure
+var:nick;null
+endStructure
+if:'%messageSend%'==='/block help'
+callMethod:help block
+cancelSendMessage
+endStructure
+if:'%messageSend%'='/notif on'
+var:notificacao;true
+cancelSendMessage
+endStructure
+if:'%messageSend%'='/notif off'
+var:notificacao;false
+cancelSendMessage
+endStructure
+if:'%messageSend%'='/block clear'
+cancelSendMessage
+addMessageIn:0.1;⚙ §dCleaning up...
+var:nick1;N/A
+save:%nick1%;nick1
+var:nick2;N/A
+save:%nick2%;nick2
+var:nick3;N/A
+save:%nick3%;nick3
+var:nick4;N/A
+save:%nick4%;nick4
+var:nick5;N/A
+save:%nick5%;nick5
+var:nick6;N/A
+save:%nick6%;nick6
+var:nick7;N/A
+save:%nick7%;nick7
+var:nick8;N/A
+save:%nick8%;nick8
+var:nick9;N/A
+save:%nick9%;nick9
+var:nick10;N/A
+save:%nick10%;nick10
+var:nick11;N/A
+save:%nick11%;nick11
+var:nick12;N/A
+save:%nick12%;nick12
+var:nick13;N/A
+save:%nick13%;nick13
+var:nick14;N/A
+save:%nick14%;nick14
+var:nick15;N/A
+save:%nick15%;nick15
+var:nick16;N/A
+save:%nick16%;nick16
+var:nick17;N/A
+save:%nick17%;nick17
+var:nick18;N/A
+save:%nick18%;nick18
+var:nick19;N/A
+save:%nick19%;nick19
+var:nick20;N/A
+save:%nick20%;nick20
+var:nick21;N/A
+save:%nick21%;nick21
+var:nic22;N/A
+save:%nick22%;nick22
+var:nick23;N/A
+save:%nick23%;nick23
+var:nick24;N/A
+save:%nick24%;nick24
+var:nick25;N/A
+save:%nick25%;nick25
+var:nick26;N/A
+save:%nick26%;nick26
+var:nick27;N/A
+save:%nick27%;nick27
+var:nick28;N/A
+save:%nick28%;nick28
+var:nick29;N/A
+save:%nick29%;nick29
+var:nick30;N/A
+save:%nick30%;nick30
+var:nick31;N/A
+save:%nick31%;nick31
+var:nick32;N/A
+save:%nick32%;nick32
+var:nick33;N/A
+save:%nick33%;nick33
+var:nick34;N/A
+save:%nick34%;nick34
+var:nick35;N/A
+save:%nick35%;nick35
+var:nick36;N/A
+save:%nick36%;nick36
+var:nick37;N/A
+save:%nick37%;nick37
+var:nick38;N/A
+save:%nick38%;nick38
+var:nick39;N/A
+save:%nick39%;nick39
+var:nick40;N/A
+save:%nick40%;nick40
+var:nick41;N/A
+save:%nick41%;nick41
+var:nick42;N/A
+save:%nick42%;nick42
+var:nick43;N/A
+save:%nick43%;nick43
+var:nick44;N/A
+save:%nick44%;nick44
+var:nick45;N/A
+save:%nick45%;nick45
+var:nick46;N/A
+save:%nick46%;nick46
+var:nick47;N/A
+save:%nick47%;nick47
+var:nick48;N/A
+save:%nick48%;nick48
+var:nick49;N/A
+save:%nick49%;nick49
+var:nick50;N/A
+save:%nick50%;nick50
+addMessageIn:3;🎉 §a§lCleaned blocks list! 🎉
+endStructure
+
+#Method:help block
+addMessageIn:0.05;⚙ §aLoading...
+addMessageIn:0.6;§b/block on
+addMessageIn:0.7;§b/unblock
+addMessageIn:0.8;§b/block clear
+addMessageIn:0.9;§b/block add [1-50] [nick]
+addMessageIn:1;§b/notif on§h/§boff
+addMessageIn:1.1;§b/help block
+addMessageIn:1.2;§9Made by: §6JJJapla § and §6guga_fenix §!!
+@MethodEnd
+
+@Event: onNewMessage:%message%
+contains:%nick1%;%message%;block
+contains:%nick2%;%message%;block
+contains:%nick3%;%message%;block
+contains:%nick4%;%message%;block
+contains:%nick5%;%message%;block
+contains:%nick6%;%message%;block
+contains:%nick7%;%message%;block
+contains:%nick8%;%message%;block
+contains:%nick9%;%message%;block
+if:'%block%'==='true' and '%notificacao%'='true'
+if:'%lingua%'='pt'
+addMessage:⛔ §cMensagem bloqueada !
+deleteMessage
+endStructure
+if:'%lingua%'='en'
+addMessage:⛔ §cBlocked message !
+deleteMessage
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cMensaje bloqueado !
+deleteMessage
+endStructure
+if:'%lingua%'='fr'
+addMessage:§c⛔ Message bloqué !
+deleteMessage
+endStructure
+endStructure
+if:'%block%'==='true' and '%notificacao%'='false'
+deleteMessage
+endStructure
+
+@Event: onAddonStart
+var:notificacao;true
+var:block;false
+var:lingua;pt
+var:lol1;true
+var:lol2;true
+var:lol3;true
+var:lol4;true
+var:lol5;true
+var:lol6;true
+var:lol7;true
+var:lol8;true
+var:lol9;true
+var:lol10;true
+var:lol11;true
+var:lol12;true
+var:lol13;true
+var:lol14;true
+var:lol15;true
+var:lol16;true
+var:lol17;true
+var:lol18;true
+var:lol19;true
+var:lol21;true
+var:lol22;true
+var:lol23;true
+var:lol24;true
+var:lol25;true
+var:lol26;true
+var:lol27;true
+var:lol28;true
+var:lol29;true
+var:lol30;true
+var:lol31;true
+var:lol32;true
+var:lol33;true
+var:lol34;true
+var:lol35;true
+var:lol36;true
+var:lol37;true
+var:lol38;true
+var:lol39;true
+var:lol40;true
+var:lol41;true
+var:lol42;true
+var:lol43;true
+var:lol44;true
+var:lol45;true
+var:lol46;true
+var:lol47;true
+var:lol48;true
+var:lol49;true
+var:lol50;true
+var:nick1;N/A
+var:nick2;N/A
+var:nick3;N/A
+var:nick4;N/A
+var:nick5;N/A
+var:nick6;N/A
+var:nick7;N/A
+var:nick8;N/A
+var:nick9;N/A
+var:nick10;N/A
+var:nick11;N/A
+var:nick12;N/A
+var:nick13;N/A
+var:nick14;N/A
+var:nick15;N/A
+var:nick16;N/A
+var:nick17;N/A
+var:nick18;N/A
+var:nick19;N/A
+var:nick20;N/A
+var:nick21;N/A
+var:nick22;N/A
+var:nick23;N/A
+var:nick24;N/A
+var:nick25;N/A
+var:nick26;N/A
+var:nick27;N/A
+var:nick28;N/A
+var:nick29;N/A
+var:nick30;N/A
+var:nick31;N/A
+var:nick32;N/A
+var:nick33;N/A
+var:nick34;N/A
+var:nick35;N/A
+var:nick36;N/A
+var:nick37;N/A
+var:nick38;N/A
+var:nick39;N/A
+var:nick40;N/A
+var:nick41;N/A
+var:nick42;N/A
+var:nick43;N/A
+var:nick44;N/A
+var:nick45;N/A
+var:nick46;N/A
+var:nick47;N/A
+var:nick48;N/A
+var:nick49;N/A
+var:nick50;N/A
+getSave:ni.ck1;nick1
+getSave:ni.ck2;nick2
+getSave:ni.ck3;nick3
+getSave:ni.ck4;nick4
+getSave:ni.ck5;nick5
+getSave:ni.ck6;nick6
+getSave:ni.ck7;nick7
+getSave:ni.ck8;nick8
+getSave:ni.ck9;nick9
+getSave:ni.ck10;nick10
+getSave:ni.ck11;nick11
+getSave:ni.ck12;nick12
+getSave:ni.ck13;nick13
+getSave:ni.ck14;nick14
+getSave:ni.ck15;nick15
+getSave:ni.ck16;nick16
+getSave:ni.ck17;nick17
+getSave:ni.ck18;nick18
+getSave:ni.ck19;nick19
+getSave:ni.ck20;nick20
+getSave:ni.ck21;nick21
+getSave:ni.ck22;nick22
+getSave:ni.ck23;nick23
+getSave:ni.ck24;nick24
+getSave:ni.ck25;nick25
+getSave:ni.ck26;nick26
+getSave:ni.ck27;nick27
+getSave:ni.ck28;nick28
+getSave:ni.ck29;nick29
+getSave:ni.ck30;nick30
+getSave:ni.ck31;nick31
+getSave:ni.ck32;nick32
+getSave:ni.ck33;nick33
+getSave:ni.ck34;nick34
+getSave:ni.ck35;nick35
+getSave:ni.ck36;nick36
+getSave:ni.ck37;nick37
+getSave:ni.ck38;nick38
+getSave:ni.ck39;nick39
+getSave:ni.ck40;nick40
+getSave:ni.ck41;nick41
+getSave:ni.ck42;nick42
+getSave:ni.ck43;nick43
+getSave:ni.ck44;nick44
+getSave:ni.ck45;nick45
+getSave:ni.ck46;nick46
+getSave:ni.ck47;nick47
+getSave:ni.ck48;nick48
+getSave:ni.ck49;nick49
+getSave:ni.ck50;nick50
+getSave:l.ol1;lol1
+getSave:l.ol2;lol2
+getSave:l.ol3;lol3
+getSave:l.ol4;lol4
+getSave:l.ol5;lol5
+getSave:l.ol6;lol6
+getSave:l.ol7;lol7
+getSave:l.ol8;lol8
+getSave:l.ol9;lol9
+getSave:l.ol10;lol10
+getSave:l.ol11;lol11
+getSave:l.ol12;lol12
+getSave:l.ol13;lol13
+getSave:l.ol14;lol14
+getSave:l.ol15;lol15
+getSave:l.ol16;lol16
+getSave:l.ol17;lol17
+getSave:l.ol18;lol18
+getSave:l.ol19;lol19
+getSave:l.ol20;lol20
+getSave:l.ol21;lol21
+getSave:l.ol22;lol22
+getSave:l.ol23;lol23
+getSave:l.ol24;lol24
+getSave:l.ol25;lol25
+getSave:l.ol26;lol26
+getSave:l.ol27;lol27
+getSave:l.ol28;lol28
+getSave:l.ol29;lol29
+getSave:l.ol30;lol30
+getSave:l.ol31;lol31
+getSave:l.ol32;lol32
+getSave:l.ol33;lol33
+getSave:l.ol34;lol34
+getSave:l.ol35;lol35
+getSave:l.ol36;lol36
+getSave:l.ol37;lol37
+getSave:l.ol38;lol38
+getSave:l.ol39;lol39
+getSave:l.ol40;lol40
+getSave:l.ol41;lol41
+getSave:l.ol42;lol42
+getSave:l.ol43;lol43
+getSave:l.ol44;lol44
+getSave:l.ol45;lol45
+getSave:l.ol46;lol46
+getSave:l.ol47;lol47
+getSave:l.ol48;lol48
+getSave:l.ol49;lol49
+getSave:l.ol50;lol50
+getSave:blo.ck;block
+
+@Event: onSendMessage:%messageSend%
+startWith:/block add 1;%messageSend%;lol1
+startWith:/block add 2;%messageSend%;lol2
+startWith:/block add 3;%messageSend%;lol3
+startWith:/block add 4;%messageSend%;lol4
+startWith:/block add 5;%messageSend%;lol5
+startWith:/block add 6;%messageSend%;lol6
+startWith:/block add 7;%messageSend%;lol7
+startWith:/block add 8;%messageSend%;lol8
+startWith:/block add 9;%messageSend%;lol9
+startWith:/block add 10;%messageSend%;lol10
+startWith:/block add 11;%messageSend%;lol11
+startWith:/block add 12;%messageSend%;lol12
+startWith:/block add 13;%messageSend%;lol13
+startWith:/block add 14;%messageSend%;lol14
+startWith:/block add 15;%messageSend%;lol15
+startWith:/block add 16;%messageSend%;lol16
+startWith:/block add 17;%messageSend%;lol17
+startWith:/block add 18;%messageSend%;lol18
+startWith:/block add 19;%messageSend%;lol19
+startWith:/block add 20;%messageSend%;lol20
+startWith:/block add 21;%messageSend%;lol21
+startWith:/block add 22;%messageSend%;lol22
+startWith:/block add 23;%messageSend%;lol23
+startWith:/block add 24;%messageSend%;lol24
+startWith:/block add 25;%messageSend%;lol25
+startWith:/block add 26;%messageSend%;lol26
+startWith:/block add 27;%messageSend%;lol27
+startWith:/block add 28;%messageSend%;lol28
+startWith:/block add 29;%messageSend%;lol29
+startWith:/block add 30;%messageSend%;lol30
+startWith:/block add 31;%messageSend%;lol31
+startWith:/block add 32;%messageSend%;lol32
+startWith:/block add 33;%messageSend%;lol33
+startWith:/block add 34;%messageSend%;lol34
+startWith:/block add 35;%messageSend%;lol35
+startWith:/block add 36;%messageSend%;lol36
+startWith:/block add 37;%messageSend%;lol37
+startWith:/block add 38;%messageSend%;lol38
+startWith:/block add 39;%messageSend%;lol39
+startWith:/block add 40;%messageSend%;lol40
+startWith:/block add 41;%messageSend%;lol41
+startWith:/block add 42;%messageSend%;lol42
+startWith:/block add 43;%messageSend%;lol43
+startWith:/block add 44;%messageSend%;lol44
+startWith:/block add 45;%messageSend%;lol45
+startWith:/block add 46;%messageSend%;lol46
+startWith:/block add 47;%messageSend%;lol47
+startWith:/block add 48;%messageSend%;lol48
+startWith:/block add 49;%messageSend%;lol49
+startWith:/block add 50;%messageSend%;lol50
+if:'%lol1%'==='true'
+startSubstring:13;%messageSend%;nick1
+save:%nick1%;ni.ck1
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol2%'==='true'
+startSubstring:13;%messageSend%;nick2
+save:%nick2%;ni.ck2
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol3%'==='true'
+startSubstring:13;%messageSend%;nick3
+save:%nick3%;ni.ck3
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol4%'==='true'
+startSubstring:13;%messageSend%;nick4
+save:%nick4%;ni.ck4
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol5%'==='true'
+startSubstring:13;%messageSend%;nick5
+save:%nick5%;ni.ck5
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol6%'==='true'
+startSubstring:13;%messageSend%;nick6
+save:%nick6%;ni.ck6
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol7%'==='true'
+startSubstring:13;%messageSend%;nick7
+save:%nick7%;ni.ck7
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol8%'==='true'
+startSubstring:13;%messageSend%;nick8
+save:%nick8%;ni.ck8
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol9%'==='true'
+startSubstring:13;%messageSend%;nick9
+save:%nick9%;ni.ck9
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol10%'==='true'
+startSubstring:14;%messageSend%;nick10
+save:%nick10%;ni.ck10
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol11%'==='true'
+startSubstring:14;%messageSend%;nick11
+save:%nick11%;ni.ck11
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol12%'==='true'
+startSubstring:14;%messageSend%;nick12
+save:%nick12%;ni.ck12
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol13%'==='true'
+startSubstring:14;%messageSend%;nick13
+save:%nick13%;ni.ck13
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol14%'==='true'
+startSubstring:14;%messageSend%;nick14
+save:%nick14%;ni.ck14
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol15%'==='true'
+startSubstring:14;%messageSend%;nick15
+save:%nick15%;ni.ck15
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol16%'==='true'
+startSubstring:14;%messageSend%;nick16
+save:%nick16%;ni.ck16
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol17%'==='true'
+startSubstring:14;%messageSend%;nick17
+save:%nick17%;ni.ck17
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol18%'==='true'
+startSubstring:14;%messageSend%;nick18
+save:%nick18%;ni.ck18
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol19%'==='true'
+startSubstring:14;%messageSend%;nick19
+save:%nick19%;ni.ck19
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol20%'==='true'
+startSubstring:14;%messageSend%;nick20
+save:%nick20%;ni.ck20
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol21%'==='true'
+startSubstring:14;%messageSend%;nick21
+save:%nick21%;ni.ck21
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol22%'==='true'
+startSubstring:14;%messageSend%;nick22
+save:%nick22%;ni.ck22
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol23%'==='true'
+startSubstring:14;%messageSend%;nick23
+save:%nick23%;ni.ck23
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol24%'==='true'
+startSubstring:14;%messageSend%;nick24
+save:%nick24%;ni.ck24
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol25%'==='true'
+startSubstring:14;%messageSend%;nick25
+save:%nick25%;ni.ck25
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol26%'==='true'
+startSubstring:14;%messageSend%;nick26
+save:%nick26%;ni.ck26
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol27%'==='true'
+startSubstring:14;%messageSend%;nick27
+save:%nick27%;ni.ck27
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol28%'==='true'
+startSubstring:14;%messageSend%;nick28
+save:%nick28%;ni.ck28
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol29%'==='true'
+startSubstring:14;%messageSend%;nick29
+save:%nick29%;ni.ck29
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol30%'==='true'
+startSubstring:14;%messageSend%;nick30
+save:%nick30%;ni.ck30
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol31%'==='true'
+startSubstring:14;%messageSend%;nick31
+save:%nick31%;ni.ck31
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol32%'==='true'
+startSubstring:14;%messageSend%;nick32
+save:%nick32%;ni.ck32
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol33%'==='true'
+startSubstring:14;%messageSend%;nick33
+save:%nick33%;ni.ck33
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol34%'==='true'
+startSubstring:14;%messageSend%;nick34
+save:%nick34%;ni.ck34
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol35%'==='true'
+startSubstring:14;%messageSend%;nick35
+save:%nick35%;ni.ck35
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol36%'==='true'
+startSubstring:14;%messageSend%;nick36
+save:%nick34%;ni.ck36
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol37%'==='true'
+startSubstring:14;%messageSend%;nick37
+save:%nick37%;ni.ck37
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol38%'==='true'
+startSubstring:14;%messageSend%;nick38
+save:%nick38%;ni.ck38
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol39%'==='true'
+startSubstring:14;%messageSend%;nick39
+save:%nick39%;ni.ck39
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol40%'==='true'
+startSubstring:14;%messageSend%;nick40
+save:%nick40%;ni.ck40
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol41%'==='true'
+startSubstring:14;%messageSend%;nick41
+save:%nick41%;ni.ck41
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol42%'==='true'
+startSubstring:14;%messageSend%;nick42
+save:%nick42%;ni.ck42
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol43%'==='true'
+startSubstring:14;%messageSend%;nick43
+save:%nick43%;ni.ck43
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol44%'==='true'
+startSubstring:14;%messageSend%;nick44
+save:%nick44%;ni.ck44
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol45%'==='true'
+startSubstring:14;%messageSend%;nick45
+save:%nick45%;ni.ck45
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol46%'==='true'
+startSubstring:14;%messageSend%;nick46
+save:%nick46%;ni.ck46
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol47%'==='true'
+startSubstring:14;%messageSend%;nick47
+save:%nick47%;ni.ck47
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol48%'==='true'
+startSubstring:14;%messageSend%;nick48
+save:%nick48%;ni.ck48
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol49%'==='true'
+startSubstring:14;%messageSend%;nick49
+save:%nick49%;ni.ck49
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+if:'%lol50%'==='true'
+startSubstring:14;%messageSend%;nick50
+save:%nick50%;ni.ck50
+cancelSendMessage
+if:'%lingua%'='pt'
+addMessage:⛔ §cUsuário foi bloqueado !
+endStructure
+if:'%lingua%'='en'
+addMessage:§c⛔ User has been blocked !
+endStructure
+if:'%lingua%'='es'
+addMessage:⛔ §cEl usuario ha sido bloqueado !
+endStructure
+if:'%lingua%'='fr'
+addMessage:⛔ §cL'utilisateur a été bloqué !
+endStructure
+endStructure
+

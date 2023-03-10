@@ -1,0 +1,152 @@
+#Method:updateAntiCache
+var:anti_cache;%anti_cache%a
+@MethodEnd
+
+@Event: onAddonStart
+var:step;0
+var:x;5
+var:y;5
+var:color;white
+var:autoping;false
+var:set;false
+var:chatOpen;false
+var:ms;0
+var:time;0
+var:detect; 
+var:anti_cache; 
+var:autoSent;false
+var:toDelete;false
+var:tick;0
+getSave:set;set
+getSave:autoping;autoping
+getSave:x;x
+getSave:y;y
+getSave:color;color
+callMethod:updateAntiCache
+
+@Event: onDraw
+drawText:%ms% MS;%x%;%y%;%color%
+if:!%set%
+if:%chatOpen%
+drawRect:53;%screenHeight%-30;%screenWidth%-55;14;#151515
+var:text; 
+if:%step% <= 0
+var:text;Ativar auto ping? Yes / No
+endStructure
+if:%step% == 1
+var:text;Posição de x ? (0 -> %screenWidth%) Envie "Ok" quando escolher
+endStructure
+if:%step% == 2
+var:text;Posição de y ? (0 -> %screenHeight%) Envie "Ok" quando escolher
+endStructure
+if:%step% == 3
+var:text;Cor ? (default: white) Envie "Ok" quando escolher §9(cor em inglês)
+endStructure
+drawText:%text%;55;%screenHeight%-28;white
+else
+drawRect:%screenWidth%/2-125;%screenHeight%/2-25;250;50;#151515
+drawText:§lPing display (By: Alexandre);%screenWidth%/2-120;%screenHeight%/2-20;white
+drawCenteredText:Abra o seu chat para configurar o add-on (T);%screenWidth% / 2;%screenHeight%/2-4;white
+endStructure
+endStructure
+
+@Event: onSendMessage:%messageSend%
+lowerCase:%messageSend%;messageSend
+if:"%messageSend%" == ".ping"
+var:set;false
+var:chatOpen;false
+var:step;0
+cancelSendMessage
+endStructure
+if:%set%
+callMethod:updateAntiCache
+startWith:/;%messageSend%;isCommand
+if:%isCommand%
+var:detect;/
+else
+var:detect;%messageSend%
+endStructure
+var:part;% 1000000
+var:part;%part% //%anti_cache%
+var:time;new Date().getTime() %part%
+endStructure
+if:!%set%
+var:chatOpen;false
+cancelSendMessage
+if:%step% == 3
+if:"%messageSend%" == "ok"
+increment:step;1
+var:set;true
+save:%set%;set
+save:%autoping%;autoping
+save:%x%;x
+save:%y%;y
+save:%color%;color
+addMessage:§aConfiguração feita! Envie "§f.ping§a" para redefinir.
+endStructure
+if:"%messageSend%" != "ok"
+var:color;%messageSend%
+endStructure
+endStructure
+if:%step% == 2
+if:"%messageSend%".replace(/[0-9]/g, '').length == 0
+var:y;%messageSend%
+endStructure
+if:"%messageSend%" == "ok"
+increment:step;1
+endStructure
+endStructure
+if:%step% == 1
+if:"%messageSend%".replace(/[0-9]/g, '').length == 0
+var:x;%messageSend%
+endStructure
+if:"%messageSend%" == "ok"
+increment:step;1
+endStructure
+endStructure
+if:%step% == 0
+if:"%messageSend%" == "yes" || "%messageSend%" == "no"
+increment:step;1
+var:autoping;"%messageSend%" == "yes"
+endStructure
+endStructure
+endStructure
+
+@Event: onKeyPressed:%pressedKey%
+if:"%pressedKey%" == "T"
+var:chatOpen;true
+endStructure
+
+@Event: onTick
+if:%toDelete%
+var:toDelete;false
+deleteMessage
+endStructure
+if:%autoping%
+var:tick;(%tick% + 1) % 400
+if:%tick% == 0
+sendMessage:/slwpingcommand
+var:autoSent;true
+endStructure
+endStructure
+
+@Event: onNewMessage:%message%
+if:"%detect%" != " "
+lowerCase:%message%;message
+contains:%detect%;%message%;flag
+if:%autoSent%
+var:autoSent;false
+var:flag;true
+var:toDelete;true
+endStructure
+if:%flag%
+callMethod:updateAntiCache
+var:detect; 
+var:part;% 1000000
+var:part;%part% //%anti_cache%
+var:current;new Date().getTime() %part%
+var:ms;%current% - %time%
+var:ms;Math.round(%ms% / 2)
+endStructure
+endStructure
+

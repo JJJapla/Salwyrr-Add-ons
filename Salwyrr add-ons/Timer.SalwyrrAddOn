@@ -1,0 +1,131 @@
+@Event: onAddonStart
+callMethod:reset
+var:color;white
+var:x;5
+var:y;80
+var:prefix;§b§lTimer §7§l»
+var:help;off
+getSave:color;color
+getSave:x;x
+getSave:y;y
+
+@Event: onSendMessage:%messageSend%
+startWith:/timer;%messageSend%;isTimerCommand
+startWith:/timer setcolor ;%messageSend%;isColorCommand
+startWith:/timer setx ;%messageSend%;isPosXCommand
+startWith:/timer sety ;%messageSend%;isPosYCommand
+if:%isTimerCommand%
+cancelSendMessage
+if:'%messageSend%' == '/timer reset'
+var:s;0
+var:m;0
+var:h;0
+var:tick;0
+addMessage:%prefix% §6O tempo foi resetado!
+else
+if:'%messageSend%' == '/timer help'
+var:help;on
+else
+if:%isColorCommand%
+startSubstring:16;%messageSend%;color
+save:%color%;color
+addMessage:%prefix% §6Cor definida para: %color%.
+else
+if:%isPosXCommand%
+startSubstring:12;%messageSend%;x
+save:%x%;x
+addMessage:%prefix% §6A posição X foi setada para: %x%.
+else
+if:%isPosYCommand%
+startSubstring:12;%messageSend%;y
+save:%y%;y
+addMessage:%prefix% §6A posição Y foi setada para: %y%.
+else
+addMessage:%prefix% §e§cComando não encontrado! /timer help
+endStructure
+endStructure
+endStructure
+endStructure
+endStructure
+endStructure
+
+@Event: onDraw
+if:'%inGame%' == 'true'
+drawText:%h%:%m%:%s%;%x%;%y%;%color%
+else
+drawText:§l§k!!!!!!!!!!;%x%;%y%;%color%
+endStructure
+
+@Event: onDraw
+if:'%help%' == 'on'
+drawRect:198;73;304;254;rainbow
+drawRect:200;75;300;250;black
+callMethod:writeHelpMessages
+endStructure
+
+#Method:writeHelpMessages
+drawText:§7§lTimer Addon;218;83;black
+drawText:§b/timer sety <y>: §2Configure a posição Y do contador;218;90 + 40;black
+drawText:§b/timer sety <x>: §2Configure a posição X do contador;218;120 + 40;black
+drawText:§b/timer setcolor <color>: §2Altere a cor do contador;218;150 + 40;black
+drawText:§b/timer reset: §2Resete o contador;218;180 + 40;black
+drawText:§b/timer help: §2Exibe as funções e os comando do add-on;218;210 + 40;black
+drawText:§lFeito por guga_fenix <3 ;218;230 + 60;chroma
+@MethodEnd
+
+@Event: onLeftClick
+var:help;off
+
+@Event: onRightClick
+var:help;off
+
+@Event: onTick
+if:'%tick%' < 20
+increment:tick;1
+else
+var:tick;0
+if:'%s%' < 60
+increment:s;1
+else
+var:s;0
+if:'%m%' < 60
+increment:m;1
+else
+var:m;0
+increment:h;1
+endStructure
+endStructure
+endStructure
+
+#Method:reset
+var:s;0
+var:m;0
+var:h;0
+var:tick;0
+var:inGame;false
+@MethodEnd
+
+@Event: onNewMessage:%message%
+contains:%nick% foi;%message%;containsMyFinalKill
+contains:%nick%.;%message%;containsAnotherFinalKill
+contains:O jogo iniciou!;%message%;containsStartBedWarsMessage
+contains:Partida começando em 1 segundo.;%message%;containsStartInOnSecond
+contains:Vencedor -;%message%;containsWinnerMessage
+if:%containsStartBedWarsMessage% or %containsStartInOnSecond%
+callMethod:reset
+var:inGame;true
+endStructure
+if:'%inGame%' == 'true'
+if:'%message%' == 'Você morreu!'
+addMessageIn:0.2;§aTempo jogado na partida: %h% horas, %m% minutos e %s% segundos.
+callMethod:reset
+endStructure
+if:%containsWinnerMessage%
+addMessageIn:0.2;§aTempo jogado na partida: %h% horas, %m% minutos e %s% segundos.
+callMethod:reset
+endStructure
+endStructure
+
+@Event: onAddonStart
+replace:*;;%playerName%;nick
+

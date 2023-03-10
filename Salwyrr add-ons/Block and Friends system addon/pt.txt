@@ -1,0 +1,13 @@
+[PT]
+
+
+Hey!
+
+Este addOn foi feito pelo JJJapla e pelo Guga_Fenix, e aqui vamos explicar o addon e os seus comandos.
+
+O addon tem sistema de amizades e sistema de bloquear pessoas. Pode escolher se quer notificação, quais as pessoas, retirar pessoas, resetar o addon e etc.
+O addon de Friends contêm 10 slots para amizades e o addon de Bloquear pessoas contêm 50 slots para bloquear.
+
+Dê "/addon help" para ver todos os comandos e disponibilidades!
+
+Obrigado.

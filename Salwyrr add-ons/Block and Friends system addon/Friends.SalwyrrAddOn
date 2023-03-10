@@ -1,0 +1,597 @@
+@Event: onSendMessage:%messageSend%
+startWith:/friend add ;%messageSend%;add
+if:%add%
+cancelSendMessage
+if:%1x% === false
+startSubstring:12;%messageSend%;1
+save:%1%;1
+var:1x;true
+save:%1x%;1x
+var:total;1
+save:%total%;total
+callMethod:fAdd
+else
+if:%2x% === false
+startSubstring:12;%messageSend%;2
+save:%2%;2
+var:2x;true
+save:%2x%;2x
+var:total;2
+save:%total%;total
+callMethod:fAdd
+else
+if:%3x% === false
+startSubstring:12;%messageSend%;3
+save:%3%;3
+var:3x;true
+save:%3x%;3x
+var:total;3
+save:%total%;total
+callMethod:fAdd
+else
+if:%4x% === false
+startSubstring:12;%messageSend%;4
+save:%4%;4
+var:4x;true
+save:%4x%;4x
+var:total;4
+save:%total%;total
+callMethod:fAdd
+else
+if:%5x% === false
+startSubstring:12;%messageSend%;5
+save:%5%;5
+var:5x;true
+save:%5x%;
+var:total;5
+save:%total%;total
+callMethod:fAdd
+else
+if:%6x% === false
+startSubstring:12;%messageSend%;6
+save:%6%;6
+var:6x;true
+save:%6x%;6x
+var:total;6
+save:%total%;total
+callMethod:fAdd
+else
+if:%7x% === false
+startSubstring:12;%messageSend%;7
+save:%7%;7
+var:7x;true
+save:%7x%;
+var:total;7
+save:%total%;total
+callMethod:fAdd
+else
+if:%8x% === false
+startSubstring:12;%messageSend%;8
+save:%8%;8
+var:8x;true
+save:%8x%;8x
+var:total;8
+save:%total%;total
+callMethod:fAdd
+else
+if:%9x% === false
+startSubstring:12;%messageSend%;9
+save:%9%;9
+var:9x;true
+save:%9x%;9x
+var:total;9
+save:%total%;total
+callMethod:fAdd
+else
+callMethod:max
+endStructure
+endStructure
+endStructure
+endStructure
+endStructure
+endStructure
+endStructure
+endStructure
+endStructure
+endStructure
+
+@Event: onAddonStart
+var:1;null
+getSave:1;1
+var:1x;false
+getSave:1x;1x
+
+@Event: onAddonStart
+var:3;null
+getSave:3;3
+var:3x;false
+getSave:3x;3x
+
+@Event: onAddonStart
+var:4;null
+getSave:4;4
+var:4x;false
+getSave:4x;4x
+
+@Event: onAddonStart
+var:5;null
+getSave:5;5
+var:5x;false
+getSave:5x;5x
+
+@Event: onAddonStart
+var:6;null
+getSave:6;6
+var:6x;false
+getSave:6x;6x
+
+@Event: onAddonStart
+var:7;null
+getSave:7;7
+var:7x;false
+getSave:7x;7x
+
+@Event: onAddonStart
+var:8;null
+getSave:8;8
+var:8x;false
+getSave:8x;8x
+
+@Event: onAddonStart
+var:9;null
+getSave:9;9
+var:9x;false
+getSave:9x;9x
+
+@Event: onNewMessage:%message%
+callMethod:contains
+if:'%a1%' === 'true' or '%a2%' === 'true' or '%a3%' === 'true' or '%a4%' === 'true' or '%a5%' === 'true' or '%a6%' === 'true' or '%a7%' === 'true' or '%a8%' === 'true' or '%a9%' === 'true'
+callMethod:setSave
+callMethod:setNull
+deleteMessage
+addMessage:§b🔥%message%🔥
+deleteMessage
+callMethod:return
+callMethod:not
+endStructure
+
+#Method:setNull
+var:1;null
+var:2;null
+var:3;null
+var:4;null
+var:5;null
+var:6;null
+var:7;null
+var:8;null
+var:9;null
+@MethodEnd
+
+#Method:setSave
+var:1s;%1%
+var:2s;%2%
+var:3s;%3%
+var:4s;%4%
+var:5s;%5%
+var:6s;%6%
+var:7s;%7%
+var:8s;%8%
+var:9s;%9%
+@MethodEnd
+
+#Method:contains
+contains: %1%;%message%;a1
+contains: %2%;%message%;a2
+contains: %3%;%message%;a3
+contains: %4%;%message%;a4
+contains: %5%;%message%;a5
+contains: %6%;%message%;a6
+contains: %7%;%message%;a7
+contains: %8%;%message%;a8
+contains: %9%;%message%;a9
+@MethodEnd
+
+@Event: onSendMessage:%messageSend%
+if:'%messageSend%' == '/friends' or '%messageSend%' == '/friends help' or '%messageSend%' == '/friend help'
+cancelSendMessage
+callMethod:help
+endStructure
+
+#Method:list
+if:'%1%' == 'null'
+addMessageIn:2; 
+else
+addMessageIn:2.1;§b🔥%1%
+endStructure
+if:'%2%' == 'null'
+addMessageIn:2.4; 
+else
+addMessageIn:2.2;§b🔥%2%
+endStructure
+if:'%3%' == 'null'
+addMessageIn:2.4; 
+else
+addMessageIn:2.3;§b🔥%3%
+endStructure
+if:'%4%' == 'null'
+addMessageIn:2.4; 
+else
+addMessageIn:2.4;§b🔥%4%
+endStructure
+if:'%5%' == 'null'
+addMessageIn:2.5; 
+else
+addMessageIn:2.5;§b🔥%5%
+endStructure
+if:'%6%' == 'null'
+addMessageIn:2.6; 
+else
+addMessageIn:2.6;§b🔥%6%
+endStructure
+if:'%7%' == 'null'
+addMessageIn:2.7; 
+else
+addMessageIn:2.7;§b🔥%7%
+endStructure
+if:'%8%' == 'null'
+addMessageIn:2.8; 
+else
+addMessageIn:2.8;§b🔥%8%
+endStructure
+if:'%9%' == 'null'
+addMessageIn:2.9; 
+else
+addMessageIn:2.9;§b🔥%9%
+endStructure
+@MethodEnd
+
+@Event: onAddonStart
+var:2;null
+getSave:2;2
+var:2x;false
+getSave:2x;2x
+
+@Event: onSendMessage:%messageSend%
+if:'%messageSend%' == '/friends clear'
+cancelSendMessage
+addMessageIn:0.1;⚙ §dCleaning up...
+var:1;null
+var:2;null
+var:3;null
+var:4;null
+var:5;null
+var:6;null
+var:7;null
+var:8;null
+var:9;null
+save:%1%;1
+save:%2%;2
+save:%3%;3
+save:%4%;4
+save:%5%;5
+save:%6%;6
+save:%7%;7
+save:%8%;8
+save:%9%;9
+var:1x;false
+var:2x;false
+var:3x;false
+var:4x;false
+var:5x;false
+var:6x;false
+var:7x;false
+var:8x;false
+var:9x;false
+save:%1x%;1x
+save:%2x%;2x
+save:%3x%;3x
+save:%4x%;4x
+save:%5x%;5x
+save:%6x%;6x
+save:%7x%;7x
+save:%8x%;8x
+save:%9x%;9x
+addMessageIn:3;🎉 §a§lCleaned friends list! 🎉
+endStructure
+
+@Event: onSendMessage:%messageSend%
+if:'%messageSend%' == '/friend language'
+cancelSendMessage
+addMessageIn:0.1;§6§llanguages:
+addMessageIn:0.2;§8PT: §7= §aPortuguês
+addMessageIn:0.3;§8EN: §1§7= §aInglês
+addMessageIn:0.4;§8ES: §7= §aEspanhol
+addMessageIn:0.5;§8FR: §7= §a Francês
+addMessageIn:0.5;§c/friend language PT/EN/ES/FR
+endStructure
+
+@Event: onSendMessage:%messageSend%
+if:'%messageSend%' == '/friend language EN'
+cancelSendMessage
+if:'%l%' == 'EN'
+cancelSendMessage
+addMessage:❌ §c The language is already in English
+else
+addMessage:§1§7☑ §6§lYeah!
+var:l;EN
+save:%l%;l
+endStructure
+endStructure
+
+@Event: onSendMessage:%messageSend%
+if:'%messageSend%' == '/friend language PT'
+cancelSendMessage
+if:'%l%' == 'PT'
+cancelSendMessage
+addMessage:❌ §c O idioma já está em portugês
+else
+addMessage:§1§7☑ §6§lYeah!
+var:l;PT
+save:%l%;l
+endStructure
+endStructure
+
+@Event: onAddonStart
+var:total;0
+getSave:total;total
+
+#Method:max
+if:'%l%' = 'pt'
+addMessage:§4§lERRO! §fVocê já possui a quantidade maxima de amigos 
+endStructure
+if:'%l%' = 'en'
+addMessage:§4§lERROR! §fYou already have the maximum amount of friends
+endStructure
+if:'%l%' = 'fr'
+addMessage:§4§lERREUR! §fVous avez déjà le nombre maximum d'amis
+endStructure
+if:'%l%' = 'es'
+addMessage:§4§l¡ERROR! §fYa tienes la máxima cantidad de amigos
+endStructure
+@MethodEnd
+
+@Event: onSendMessage:%messageSend%
+if:'%messageSend%' == '/friend language FR'
+cancelSendMessage
+if:'%l%' == 'FR'
+cancelSendMessage
+addMessage:❌ §cLa langue est déjà en français
+else
+addMessage:☑ §6§lYeah!
+var:l;FR
+save:%l%;l
+endStructure
+endStructure
+
+@Event: onSendMessage:%messageSend%
+if:'%messageSend%' == '/friend language ES'
+cancelSendMessage
+if:'%l%' == 'ES'
+addMessage:❌ §c El idioma ya está en español
+else
+addMessage:☑ §6§lYeah!
+var:l;ES
+save:%l%;l
+endStructure
+endStructure
+
+#Method:fAdd
+if:'%l%' = 'pt'
+addMessage:§a⚙ §aloading...
+addMessageIn:1.5;🛠 §bamigo adicionado!
+addMessageIn:1.6;§dTotal de amigos: %total%
+if:'%total%' = '9'
+addMessageIn:1.7;🎉 §cVocê alcançou o máximo de amigos 🎉
+endStructure
+endStructure
+if:'%l%' = 'en'
+addMessage:§a⚙ §aloading...
+addMessageIn:1.5;🛠 §bfriend added!
+addMessageIn:1.6;§dTotal friends: %total%
+if:'%total%' = '9'
+addMessageIn:1.7;🎉 §cHas alcanzado el número máximo de amigos 🎉
+endStructure
+endStructure
+if:'%l%' = 'fr'
+addMessage:§a⚙ §aloading...
+addMessageIn:1.5;🛠 §bami ajouté!
+addMessageIn:1.6;§dNombre total d'amis: %total%
+if:'%total%' = '9'
+addMessageIn:1.7;🎉 §cYou have reached the maximum number of friends 🎉
+endStructure
+endStructure
+if:'%l%' = 'es'
+addMessage:§a⚙ §aloading...
+addMessageIn:1.5;🛠 §bamigo agregado!
+addMessageIn:1.6;§dAmigos totales: %total%
+if:'%total%' = '9'
+addMessageIn:1.7;🎉 §cVous avez atteint le nombre maximum d'amis 🎉
+endStructure
+endStructure
+@MethodEnd
+
+#Method:not
+if:'%not%' = 'on'
+if:'%l%' = 'pt'
+addMessageIn:0.1;⚠ §avocê recebeu mensagens de um amigo ⚠
+endStructure
+if:'%l%' = 'en'
+addMessageIn:0.1;⚠ §a§arecibiste mensajes de un amigo ⚠
+endStructure
+if:'%l%' = 'fr'
+addMessageIn:0.1;⚠ §a§avous avez reçu des messages d'un ami §a⚠
+endStructure
+if:'%l%' = 'es'
+addMessageIn:0.1;⚠ §ayou received messages from a friend ⚠
+endStructure
+endStructure
+@MethodEnd
+
+@Event: onAddonStart
+addMessageIn:0.1;😜 §6Friends add-on 😁
+addMessageIn:0.5;              ↢👌↣
+addMessageIn:0.2;⚙ §c/friend language
+
+@Event: onAddonStart
+var:not;on
+getSave:not;not
+
+#Method:return
+var:1;%1s%
+var:2;%2s%
+var:3;%3s%
+var:4;%4s%
+var:5;%5s%
+var:6;%6s%
+var:7;%7s%
+var:8;%8s%
+var:9;%9s%
+@MethodEnd
+
+@Event: onSendMessage:%messageSend%
+if:'%messageSend%' == '/friend not on'
+cancelSendMessage
+if:'%not%' = 'on'
+callMethod:JáOn
+else
+callMethod:notOff
+endStructure
+endStructure
+
+#Method:JáOn
+if:'%l%' = 'pt'
+addMessageIn:0.1;❌ §cAs notificações já estão ativadas
+endStructure
+if:'%l%' = 'en'
+addMessageIn:0.1;❌ §cNotifications are already enabled
+endStructure
+if:'%l%' = 'fr'
+addMessageIn:0.1;❌ §cLes notifications sont déjà activées
+endStructure
+if:'%l%' = 'es'
+addMessageIn:0.1;❌ §cLas notificaciones ya están habilitadas
+endStructure
+@MethodEnd
+
+@Event: onSendMessage:%messageSend%
+if:'%messageSend%' == '/friend not off'
+cancelSendMessage
+if:'%not%' = 'off'
+callMethod:JáOff
+else
+callMethod:notOn
+endStructure
+endStructure
+
+#Method:notOn
+var:not;off
+save:%not%;%not%
+if:'%l%' = 'pt'
+addMessageIn:0.1;✔ §aNotificações desativadas
+endStructure
+if:'%l%' = 'en'
+addMessageIn:0.1;✔ §aNotifications disabled
+endStructure
+if:'%l%' = 'fr'
+addMessageIn:0.1;✔ §aNotifications désactivées
+endStructure
+if:'%l%' = 'es'
+addMessageIn:0.1;✔ §aNotificaciones deshabilitadas
+endStructure
+@MethodEnd
+
+#Method:JáOff
+if:'%l%' = 'pt'
+addMessageIn:0.1;❌ §cAs notificações já estão desativadas
+endStructure
+if:'%l%' = 'en'
+addMessageIn:0.1;❌ §cAs notificações já estão desativadas
+endStructure
+if:'%l%' = 'fr'
+addMessageIn:0.1;❌ §cAs notificações já estão desativadas
+endStructure
+if:'%l%' = 'es'
+addMessageIn:0.1;❌ §cAs notificações já estão desativadas
+endStructure
+@MethodEnd
+
+#Method:notOff
+var:not;on
+save:%not%;not
+if:'%l%' = 'pt'
+addMessageIn:0.1;✔ §aNotificações ativadas
+endStructure
+if:'%l%' = 'en'
+addMessageIn:0.1;✔ §aNotificaciones habilitadas
+endStructure
+if:'%l%' = 'fr'
+addMessageIn:0.1;✔ §aNotifications activées
+endStructure
+if:'%l%' = 'es'
+addMessageIn:0.1;✔ §aNotifications enabled
+endStructure
+@MethodEnd
+
+@Event: onAddonStart
+var:l;pt
+getSave:l;l
+
+@Event: onSendMessage:%messageSend%
+if:'%messageSend%' == '/friend list'
+cancelSendMessage
+addMessageIn:0.1;⚙ §aloading...
+addMessageIn:2;⛏ §6Friend list:
+callMethod:list
+endStructure
+
+#Method:help
+if:'%l%' = 'pt'
+addMessageIn:0.1; 
+addMessageIn:0.3;⚙ §aloading...
+addMessageIn:2.0;⛏ §3Comandos do add-on
+addMessageIn:2.1;§8/friend add <player>: §aAdiciona o player a lista de amigos
+addMessageIn:2.2;§8/friend clear: §aLimpa a lista de amigos
+addMessageIn:2.3;§8/friend list: §aMostra a lista de amigos
+addMessageIn:2.4;§8/friend launguage: §aAltera o idioma do add-on
+addMessageIn:2.5;§8/friends: §aExibe as informações do add-on
+addMessageIn:2.6;§8/friend not on/off: §aAtiva ou desativa as notificações
+addMessageIn:3.0;§l😜😁§6§lBy GugaFenix and Jjjapla⁉
+endStructure
+if:'%l%' = 'en'
+addMessageIn:0.1; 
+addMessageIn:0.3;⚙ §aloading...
+addMessageIn:2.0;⛏ §3Comandos do add-on
+addMessageIn:2.1;§8/friend add <player>: §aAdds the player to the friends list
+addMessageIn:2.2;§8/friend clear: §aClear friends list
+addMessageIn:2.3;§8/friend list: Shows §athe list of friends
+addMessageIn:2.4;§8/friend launguage: §aChange the language of the add-on
+addMessageIn:2.5;§8/friends: §aDisplays the add-on information
+addMessageIn:2.6;§8/friend not on/off: §aTurn notifications on or off
+addMessageIn:3.0;§l😜😁§6§lBy GugaFenix and Jjjapla⁉
+endStructure
+if:'%l%' = 'fr'
+addMessageIn:0.1; 
+addMessageIn:0.3;⚙ §aloading...
+addMessageIn:2.0;⛏ §3Comandos do add-on
+addMessageIn:2.2;§8/friend add <player>: §aAjoute le joueur à la liste d'amis
+addMessageIn:2.3;§8/friend clear: §aEffacer la liste d'amis
+addMessageIn:2.4;§8/friend list: §aAffiche la liste des amis
+addMessageIn:2.5;§8/friend language: §aChanger la langue du module complémentaire
+addMessageIn:2.6;§8/friends: §aAffiche les informations du module complémentaire
+addMessageIn:2.7;§8/friend not on/off: §aActiver ou désactiver les notifications
+addMessageIn:3.0;§l😜😁§6§lBy GugaFenix and Jjjapla⁉
+endStructure
+if:'%l%' = 'es'
+addMessageIn:0.1; 
+addMessageIn:0.3;⚙ §aloading...
+addMessageIn:2.0;⛏ §3Comandos do add-on
+addMessageIn:2.1;§8/friend add <player>: §aAgrega el jugador a la lista de amigos
+addMessageIn:2.2;§8/friend clear: §aBorrar lista de amigos
+addMessageIn:2.3;§8/friend list: §aMuestra la lista de amigos.
+addMessageIn:2.4;§8/friend language: §aCambiar el idioma del complemento
+addMessageIn:2.5;§8/friends: §aMuestra la información adicional.
+addMessageIn:2.6;§8/friend not on/off: §aActivar o desactivar las notificaciones
+addMessageIn:3.8;§l😜😁§6§lBy GugaFenix and Jjjapla⁉
+endStructure
+@MethodEnd
+

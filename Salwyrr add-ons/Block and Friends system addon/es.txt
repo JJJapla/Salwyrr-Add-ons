@@ -1,0 +1,15 @@
+[ES]
+
+
+¡Oye! 
+
+Este addon fue creado por JJJapla y Guga_Fenix, y aquí explicaremos el addon y los comandos. 
+
+El addon tiene un sistema de amistades y un sistema para bloquear personas. Puede elegir si desea notificación, qué personas, eliminar personas, restablecer el addon, etc. El Addon "Amigos" contiene 10 espacios para amistades y el Addon "Bloquear personas" contiene 50 espacios para bloquear.
+
+ ¡Haga "/ addon help" para ver todos los comandos y la disponibilidad! Gracias.
+
+Gracias.
+
+Traducido al español por: Seth/Cry 
+Discord ID: <@706469162339532811>

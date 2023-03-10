@@ -1,0 +1,100 @@
+@Event: onAddonStart
+var:calc;0
+var:r;0
+var:text;0
+var:temp;0
+var:tempTrue;0
+var:repTrue;0
+var:dejavu;0
+getSave:dejavu;dejavu
+if:"%dejavu%"="0"
+var:dejavu;1
+save:%dejavu%;dejavu
+callMethod:help
+endStructure
+
+@Event: onSendMessage:%messageSend%
+if:"%calc%"="0"
+if:"%messageSend%"="/calc off" or "%messageSend%"="/calc save" or "%messageSend%"="/calc load"
+addMessage:§4Você deve ligar a calculadora!
+cancelSendMessage
+endStructure
+else
+if:"%calc%"="1"
+startWith:/calc ;%messageSend%;calcTrue
+if:"%calcTrue%"==="true"
+if:"%messageSend%"="/calc off"
+cancelSendMessage
+if:"%calc%"="1"
+var:calc;0
+addMessage:§cCalculadora está desligada!
+endStructure
+endStructure
+if:"%messageSend%"="/calc save"
+cancelSendMessage
+save:%r%;r
+save:%text%;text
+addMessage:§6"Calculadora" salva!
+endStructure
+if:"%messageSend%"="/calc load"
+cancelSendMessage
+getSave:r;r
+getSave:text;text
+addMessage:§6Calculadora carregada!
+addMessage:%text% ↩
+addMessage:§B=%r%
+endStructure
+else
+if:"%messageSend%"!="/calc on"
+cancelSendMessage
+lowerCase:%messageSend%;temp
+startWith:rep;%temp%;repTrue
+if:"%repTrue%"==="true"
+startSubstring:3;%temp%;temp
+startSubstring:1;%temp%;test
+var:test;%test%*0
+if:"%test%"="0"
+var:text;§7(%text%)%temp%
+var:r;%r%%temp%
+endStructure
+else
+var:test;%messageSend%
+var:test;%test%*0
+if:"%test%"="0"
+var:text;§7%messageSend%
+var:r;%messageSend%
+endStructure
+endStructure
+if:"%test%"="0"
+addMessage:%text% ↩
+addMessage:§B=%r%
+else
+addMessage:§4Não pode ser calculado!
+endStructure
+endStructure
+endStructure
+endStructure
+endStructure
+if:"%messageSend%"="/calc on"
+cancelSendMessage
+if:"%calc%"="0"
+var:calc;1
+addMessage:§aCalculadora está ligada!
+else
+addMessage:§ACalculator já estava ligada!
+endStructure
+endStructure
+if:"%messageSend%"="/calc help"
+cancelSendMessage
+callMethod:help
+endStructure
+
+#Method:help
+addMessageIn:0.1;§9Calculadora criada por §6NexFord §9e traduzida por §6JJJapla§9 !
+addMessageIn:0.2;§a/calc on §7Liga a calculadora !
+addMessageIn:0.3;§c/calc off §7Desliga a calculadora !
+addMessageIn:0.4;§6/calc save §7Salva a calculadora !
+addMessageIn:0.5;§6/calc load §7Carrega a conta !
+addMessageIn:0.6;§2/calc help §7Afixa esta mensagem !
+@MethodEnd
+

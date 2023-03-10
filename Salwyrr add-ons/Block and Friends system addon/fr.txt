@@ -1,0 +1,13 @@
+[FR]
+
+
+Hey!
+
+Cet addOn a été fait par JJJapla et Guga_Fenix, et ici nous expliquerons l'addon et les commandes.
+
+L'addon a un système d'amitiés et un système pour bloquer les gens. Vous pouvez choisir si vous voulez une notification, quelles personnes, supprimer des personnes, réinitialiser le module complémentaire, etc.
+L'addon Friends contient 10 emplacements pour les amitiés et l'addon Block people contient 50 emplacements à bloquer.
+
+Faites "/ addon help" pour voir toutes les commandes et la disponibilité!
+
+Merci.
