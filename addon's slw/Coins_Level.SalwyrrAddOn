@@ -1,5 +1,0 @@
-@Event: onDraw
-drawText:%playerCoins% §acoins;5;60;rainbow
-drawText:%playerXP%§a XP;5;70;rainbow
-drawText:%playerLevel%§a Lvl;5;80;rainbow
-

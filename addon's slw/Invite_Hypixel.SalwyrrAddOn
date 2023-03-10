@@ -1,8 +1,0 @@
-@Event: onSendMessage:%messageSend%
-startWith:/inv ;%messageSend%;invTrue
-if:%invTrue%===true
-replace:/inv ;;%messageSend%;player
-sendMessage:/party invite %player%
-cancelSendMessage
-endStructure
-
